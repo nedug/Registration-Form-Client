@@ -31,14 +31,15 @@ export const login = (email, password) => {
     };
 };
 
-export const auth = () => {
+export const auth = () => { /* Проверка пользователя на авторизацию */
     return async dispatch => {
         try {
             const response = await axios.get(`${API_URL}api/auth/auth`,
-                { headers: { Authorization: `Bearer ${localStorage.getItem('token')}` } },
+                { headers: { Authorization: `Bearer ${localStorage.getItem('token')}` } }, /* Отправляем Токен в Заголовках */
             );
-            dispatch(setUser(response.data.user));
-            localStorage.setItem('token', response.data.token);
+
+            dispatch(setUser(response.data.user)); /* Сохраняем пользователя */
+            localStorage.setItem('token', response.data.token); /* Сохраняем Токен в локал сторидж */
         } catch (e) {
             localStorage.removeItem('token');
         }
