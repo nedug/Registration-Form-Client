@@ -8,6 +8,7 @@ export const registration = async (email, password) => {
             email,
             password,
         });
+
         alert(response.data.message);
     } catch (e) {
         alert(e.response.data.message);
@@ -21,8 +22,9 @@ export const login = (email, password) => {
                 email,
                 password,
             });
-            dispatch(setUser(response.data.user));
-            localStorage.setItem('token', response.data.token);
+
+            dispatch(setUser(response.data.user)); /* Сохраняем пользователя */
+            localStorage.setItem('token', response.data.token); /* Сохраняем Токен в локал сторидж */
         } catch (e) {
             alert(e.response.data.message);
         }
@@ -42,6 +44,7 @@ export const auth = () => {
         }
     };
 };
+
 
 export const uploadAvatar = (file) => {
     return async dispatch => {

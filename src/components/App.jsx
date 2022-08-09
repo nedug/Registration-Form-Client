@@ -10,7 +10,7 @@ import Disk from './disk/Disk';
 import Profile from './profile/Profile';
 
 function App() {
-    const isAuth = useSelector(state => state.user.isAuth);
+    const isAuth = useSelector(state => state.user.isAuth); /* Узнаем авторизован ли пользователь */
     const dispatch = useDispatch();
 
     useEffect(() => {
