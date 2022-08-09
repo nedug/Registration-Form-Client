@@ -1,9 +1,11 @@
 const SET_USER = 'SET_USER';
 const LOGOUT = 'LOGOUT';
+const ERROR = 'ERROR';
 
 const defaultState = {
     currentUser: {},
     isAuth: false,
+    error: false,
 };
 
 export default function userReducer(state = defaultState, action) {
@@ -21,6 +23,11 @@ export default function userReducer(state = defaultState, action) {
                 currentUser: {},
                 isAuth: false,
             };
+        case ERROR:
+            return {
+                ...state,
+                error: action.payload,
+            };
         default:
             return state;
     }
@@ -29,3 +36,4 @@ export default function userReducer(state = defaultState, action) {
 
 export const setUser = user => ({ type: SET_USER, payload: user });
 export const logout = () => ({ type: LOGOUT });
+export const error = error => ({ type: ERROR, payload: error });

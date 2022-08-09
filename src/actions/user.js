@@ -1,17 +1,23 @@
 import axios from 'axios';
-import { setUser } from '../reducers/userReducer';
+import { error, setUser } from '../reducers/userReducer';
 import { API_URL } from '../config';
 
-export const registration = async (email, password) => {
-    try {
-        const response = await axios.post(`${API_URL}api/auth/registration`, {
-            email,
-            password,
-        });
+export const registration = (email, password) => {
+    return async dispatch => {
+        try {
+            const response = await axios.post(`${API_URL}api/auth/registration`, {
+                email,
+                password,
+            });
 
-        alert(response.data.message);
-    } catch (e) {
-        alert(e.response.data.message);
+            alert(response.data.message);
+        } catch (e) {
+            dispatch(error(e.response.data.message));
+
+            setTimeout(() => {
+                dispatch(error(false));
+            }, 3500);
+        }
     }
 };
 
@@ -26,7 +32,14 @@ export const login = (email, password) => {
             dispatch(setUser(response.data.user)); /* Сохраняем пользователя */
             localStorage.setItem('token', response.data.token); /* Сохраняем Токен в локал сторидж */
         } catch (e) {
-            alert(e.response.data.message);
+
+            dispatch(error(e.response.data.message));
+
+            setTimeout(() => {
+                dispatch(error(false));
+            }, 3500);
+
+            // alert(e.response.data.message);
         }
     };
 };

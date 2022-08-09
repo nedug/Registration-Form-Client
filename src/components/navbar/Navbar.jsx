@@ -1,5 +1,4 @@
 import React from 'react';
-import './navbar.css';
 import Logo from '../../assets/img/navbar-logo.svg';
 import { NavLink } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
@@ -12,22 +11,27 @@ const Navbar = () => {
 
 
     return (
-        <div className='navbar'>
-            <div className='container'>
-                <img src={Logo} alt='' className='navbar__logo' />
-                <div className='navbar__header'>Form CLOUD</div>
+        <nav className='flex justify-between items-center h-[80px] px-5 shadow-md bg-gray-400 text-white'>
 
+            <h3 className='font-bold text-3xl text-white ml-3' >JWT Token</h3>
 
-                {!isAuth && <div className='navbar__login'><NavLink to='/login'>Войти</NavLink></div>}
+            <div className='flex flex-row'>
+                {!isAuth &&
+                    <NavLink to='/registration'><button className='px-4 py-2 rounded-lg bg-pink-400 m-3 hover:shadow-md hover:bg-pink-500'>
+                        Sign Up
+                    </button></NavLink>}
 
-                {!isAuth && <div className='navbar__registration'><NavLink to='/registration'>Регистрация</NavLink></div>}
+                {!isAuth &&
+                    <NavLink to='/login'><button className='px-4 py-2 rounded-lg bg-emerald-400 m-3 hover:shadow-md hover:bg-emerald-500'>
+                        Log In
+                    </button></NavLink>}
 
 
                 {isAuth && <div className='navbar__login' onClick={() => dispatch(logout())}>Выход</div>}
 
                 {isAuth && <NavLink to='/profile'>Пользователь</NavLink>}
             </div>
-        </div>
+        </nav>
     );
 };
 
