@@ -1,20 +1,21 @@
 import React, { useEffect } from 'react';
 import Navbar from './navbar/Navbar';
 import './app.css';
-import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom';
 import Registration from './authorization/Registration';
 import Login from './authorization/Login';
 import { useDispatch, useSelector } from 'react-redux';
 import { auth } from '../actions/user';
 import Profile from './profile/Profile';
+import { BrowserRouter, Redirect, Switch, Route } from 'react-router-dom';
 
-function App() {
+
+const App = () => {
     const isAuth = useSelector(state => state.user.isAuth); /* Узнаем авторизован ли пользователь */
     const dispatch = useDispatch();
 
     useEffect(() => {
         dispatch(auth());
-    }, []);
+    }, [dispatch]);
 
 
     return (
@@ -40,6 +41,6 @@ function App() {
             </div>
         </BrowserRouter>
     );
-}
+};
 
 export default App;

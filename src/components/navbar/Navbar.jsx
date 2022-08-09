@@ -5,6 +5,7 @@ import { NavLink } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { logout } from '../../reducers/userReducer';
 
+
 const Navbar = () => {
     const isAuth = useSelector(state => state.user.isAuth);
     const dispatch = useDispatch();
