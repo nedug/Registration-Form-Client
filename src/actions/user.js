@@ -90,3 +90,24 @@ export const removeUser = () => {
         }
     };
 };
+
+export const changePassword = (email, newPassword) => {
+    return async dispatch => {
+        try {
+            const response = await axios.patch(`${API_URL}api/auth/change`, {
+                email,
+                newPassword,
+            });
+
+            console.log(response.data);
+
+            dispatch(setUser(response.data.user)); /* Сохраняем пользователя */
+            localStorage.setItem('token', response.data.token); /* Сохраняем Токен в локал сторидж */
+        } catch (e) {
+            dispatch(error(e.response.data.message));
+            setTimeout(() => {
+                dispatch(error(false));
+            }, 3500);
+        }
+    };
+};
