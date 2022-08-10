@@ -28,16 +28,21 @@ export const registration = (email, password, setEmail, setPassword) => {
     };
 };
 
-export const login = (email, password) => {
+export const login = (email, password, checkbox) => {
     return async dispatch => {
         try {
             const response = await axios.post(`${API_URL}api/auth/login`, {
                 email,
                 password,
+                checkbox,
             });
 
             dispatch(setUser(response.data.user)); /* Сохраняем пользователя */
-            localStorage.setItem('token', response.data.token); /* Сохраняем Токен в локал сторидж */
+
+            checkbox
+                ? localStorage.setItem('token', response.data.token) /* Сохраняем Токен в локал сторидж */
+                : sessionStorage.setItem('token', response.data.token); /* Сохраняем Токен в сейшн сторидж */
+
         } catch (e) {
             dispatch(error(e.response.data.message));
             setTimeout(() => {
@@ -51,14 +56,22 @@ export const auth = () => { /* Проверка пользователя на а
     return async dispatch => {
         try {
             dispatch(showLoader());
+
             const response = await axios.get(`${API_URL}api/auth/auth`,
-                { headers: { Authorization: `Bearer ${localStorage.getItem('token')}` } }, /* Отправляем Токен в Заголовках */
+                {/* Отправляем Токен в Заголовках */
+                    headers: { Authorization: `Bearer ${localStorage.getItem('token') || sessionStorage.getItem('token')}` },
+                },
             );
 
             dispatch(setUser(response.data.user)); /* Сохраняем пользователя */
-            localStorage.setItem('token', response.data.token); /* Сохраняем Токен в локал сторидж */
+
+            response.data.user.isSaveSession
+                ? localStorage.setItem('token', response.data.token)
+                : sessionStorage.setItem('token', response.data.token);
+
         } catch (e) {
             localStorage.removeItem('token');
+            sessionStorage.removeItem('token');
         } finally {
             dispatch(hideLoader());
         }
