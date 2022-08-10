@@ -25,7 +25,7 @@ export const registration = (email, password, setEmail, setPassword) => {
                 dispatch(error(false));
             }, 3500);
         }
-    }
+    };
 };
 
 export const login = (email, password) => {
@@ -59,8 +59,7 @@ export const auth = () => { /* Проверка пользователя на а
             localStorage.setItem('token', response.data.token); /* Сохраняем Токен в локал сторидж */
         } catch (e) {
             localStorage.removeItem('token');
-        }
-        finally {
+        } finally {
             dispatch(hideLoader());
         }
     };
@@ -84,8 +83,7 @@ export const removeUser = () => {
             setTimeout(() => {
                 dispatch(error(false));
             }, 3500);
-        }
-        finally {
+        } finally {
             dispatch(hideLoader());
         }
     };

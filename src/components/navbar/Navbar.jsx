@@ -13,21 +13,27 @@ const Navbar = () => {
     return (
         <nav className='flex justify-between items-center h-[80px] px-5 shadow-md bg-gray-400 text-white'>
 
-            <h3 className='font-bold text-3xl text-white ml-3' >JWT Token</h3>
+            <h3 className='font-bold text-3xl text-white ml-3'>JWT Token</h3>
 
             <div className='flex flex-row'>
                 {!isAuth &&
-                    <NavLink to='/registration'><button className='px-4 py-2 rounded-lg bg-pink-400 m-3 hover:shadow-md hover:bg-pink-500'>
-                        Sign Up
-                    </button></NavLink>}
+                    <NavLink to='/registration'>
+                        <button className='px-4 py-2 rounded-lg bg-pink-400 m-3 hover:shadow-md hover:bg-pink-500'>
+                            Sign Up
+                        </button>
+                    </NavLink>}
 
                 {!isAuth &&
-                    <NavLink to='/login'><button className='px-4 py-2 rounded-lg bg-emerald-400 m-3 hover:shadow-md hover:bg-emerald-500'>
-                        Log In
-                    </button></NavLink>}
+                    <NavLink to='/login'>
+                        <button
+                            className='px-4 py-2 rounded-lg bg-emerald-400 m-3 hover:shadow-md hover:bg-emerald-500'>
+                            Log In
+                        </button>
+                    </NavLink>}
 
 
-                {isAuth && <button className='px-4 py-2 rounded-lg bg-gray-800 m-3 hover:shadow-md hover:bg-gray-900' onClick={() => dispatch(logout())}>Log Out</button>}
+                {isAuth && <button className='px-4 py-2 rounded-lg bg-gray-800 m-3 hover:shadow-md hover:bg-gray-900'
+                                   onClick={() => dispatch(logout())}>Log Out</button>}
 
                 {/*{isAuth && <NavLink to='/profile'>Пользователь</NavLink>}*/}
             </div>
