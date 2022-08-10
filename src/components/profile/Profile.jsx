@@ -1,11 +1,13 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { registration, removeUser } from '../../actions/user';
 
 
 const Profile = () => {
     const currentUser = useSelector(state => state.user.currentUser);
+    const dispatch = useDispatch();
 
-    console.log(currentUser);
+    const onClickButton = () => dispatch(removeUser());
 
 
     return (
@@ -16,6 +18,9 @@ const Profile = () => {
                 <h2 className='font-bold text-3xl my-6'>{currentUser.email}</h2>
                 <h4 className='font-bold text-xl my-4'>Time of create: {new Date(currentUser.date).toLocaleString()}</h4>
                 <h4 className='font-bold text-xl my-4'>Time of login: {new Date(currentUser.dateLogin).toLocaleString()}</h4>
+                <button className='py-2 w-[150px] rounded-lg bg-neutral-400 my-7 hover:shadow-md hover:bg-neutral-500'
+                        onClick={onClickButton}>Remove User
+                </button>
 
             </div>
         </div>

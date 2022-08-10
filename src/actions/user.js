@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { error, setUser, success } from '../reducers/userReducer';
+import { error, logout, setUser, success } from '../reducers/userReducer';
 import { API_URL } from '../config';
 import { hideLoader, showLoader } from '../reducers/appReducer';
 
@@ -59,6 +59,31 @@ export const auth = () => { /* Проверка пользователя на а
             localStorage.setItem('token', response.data.token); /* Сохраняем Токен в локал сторидж */
         } catch (e) {
             localStorage.removeItem('token');
+        }
+        finally {
+            dispatch(hideLoader());
+        }
+    };
+};
+
+export const removeUser = () => {
+    return async dispatch => {
+        try {
+            dispatch(showLoader());
+            const response = await axios.delete(`${API_URL}api/auth/delete`,
+                { headers: { Authorization: `Bearer ${localStorage.getItem('token')}` } }, /* Отправляем Токен в Заголовках */
+            );
+            dispatch(logout()); /* Удаялем данные о пользователе */
+
+            dispatch(success(`User ${response.data.user.email} was removed!`));
+            setTimeout(() => {
+                dispatch(success(false));
+            }, 3500);
+        } catch (e) {
+            dispatch(error(e.response.data.message));
+            setTimeout(() => {
+                dispatch(error(false));
+            }, 3500);
         }
         finally {
             dispatch(hideLoader());
