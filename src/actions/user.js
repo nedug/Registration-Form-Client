@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { error, setUser, success } from '../reducers/userReducer';
 import { API_URL } from '../config';
+import { hideLoader, showLoader } from '../reducers/appReducer';
 
 export const registration = (email, password, setEmail, setPassword) => {
     return async dispatch => {
@@ -49,6 +50,7 @@ export const login = (email, password) => {
 export const auth = () => { /* Проверка пользователя на авторизацию */
     return async dispatch => {
         try {
+            dispatch(showLoader());
             const response = await axios.get(`${API_URL}api/auth/auth`,
                 { headers: { Authorization: `Bearer ${localStorage.getItem('token')}` } }, /* Отправляем Токен в Заголовках */
             );
@@ -57,6 +59,9 @@ export const auth = () => { /* Проверка пользователя на а
             localStorage.setItem('token', response.data.token); /* Сохраняем Токен в локал сторидж */
         } catch (e) {
             localStorage.removeItem('token');
+        }
+        finally {
+            dispatch(hideLoader());
         }
     };
 };
