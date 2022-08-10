@@ -1,8 +1,8 @@
 import axios from 'axios';
-import { error, setUser } from '../reducers/userReducer';
+import { error, setUser, success } from '../reducers/userReducer';
 import { API_URL } from '../config';
 
-export const registration = (email, password) => {
+export const registration = (email, password, setEmail, setPassword) => {
     return async dispatch => {
         try {
             const response = await axios.post(`${API_URL}api/auth/registration`, {
@@ -10,7 +10,13 @@ export const registration = (email, password) => {
                 password,
             });
 
-            alert(response.data.message);
+            dispatch(success(response.data.message));
+            setTimeout(() => {
+                dispatch(success(false));
+            }, 3500);
+
+            setEmail('');
+            setPassword('');
         } catch (e) {
             dispatch(error(e.response.data.message));
 
