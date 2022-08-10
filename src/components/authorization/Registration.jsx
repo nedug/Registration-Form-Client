@@ -16,7 +16,7 @@ const Registration = () => {
         <div className='flex justify-center'>
 
             <div
-                className='flex flex-col items-center bg-gray-200 shadow-xl hover:bg-gray-200 transition-all my-10 w-[650px] justify-between rounded-lg p-5'>
+                className='flex flex-col items-center bg-gray-200 shadow-xl hover:bg-gray-200 transition-all my-10 w-[650px] justify-between rounded-lg px-14 py-5'>
                 <h2 className='font-bold text-3xl'>Sign Up!</h2>
                 <Input value={email} setValue={setEmail} type='text' placeholder='Email...' />
                 <Input value={password} setValue={setPassword} type='password' placeholder='Password...' />

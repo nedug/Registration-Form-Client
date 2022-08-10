@@ -29,10 +29,10 @@ const Profile = () => {
                 <h4 className='font-bold text-xl my-3'>Time of
                     login: {new Date(currentUser.dateLogin).toLocaleString()}</h4>
 
-                <div className='flex flex-col items-end mb-6 mt-8'>
+                <div className='flex flex-row items-center mb-6 mt-8 w-[100%]'>
                     <Input value={newPassword} setValue={setPassword} type='password' placeholder='New Password...' />
                     <button
-                        className='py-2 w-[150px] rounded-lg bg-yellow-400 my-4 hover:shadow-md hover:bg-yellow-500'
+                        className='py-3 w-[250px] rounded-lg bg-yellow-400 my-4 ml-5 hover:shadow-md hover:bg-yellow-500'
                         onClick={changePassHandler}>Change Password
                     </button>
                 </div>
