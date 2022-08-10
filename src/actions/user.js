@@ -91,7 +91,7 @@ export const removeUser = () => {
     };
 };
 
-export const changePassword = (email, newPassword) => {
+export const changePassword = (email, newPassword, setPassword) => {
     return async dispatch => {
         try {
             const response = await axios.patch(`${API_URL}api/auth/change`, {
@@ -99,10 +99,15 @@ export const changePassword = (email, newPassword) => {
                 newPassword,
             });
 
-            console.log(response.data);
-
             dispatch(setUser(response.data.user)); /* Сохраняем пользователя */
             localStorage.setItem('token', response.data.token); /* Сохраняем Токен в локал сторидж */
+
+            setPassword('');
+
+            dispatch(success('New password was saved!'));
+            setTimeout(() => {
+                dispatch(success(false));
+            }, 3500);
         } catch (e) {
             dispatch(error(e.response.data.message));
             setTimeout(() => {

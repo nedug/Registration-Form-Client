@@ -13,7 +13,7 @@ const Profile = () => {
     const removeHandler = () => dispatch(removeUser());
 
     const changePassHandler = () => {
-        dispatch(changePassword(currentUser.email, newPassword));
+        dispatch(changePassword(currentUser.email, newPassword, setPassword));
     };
 
 
