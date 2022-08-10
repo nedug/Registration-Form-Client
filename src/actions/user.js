@@ -83,7 +83,7 @@ export const removeUser = () => {
         try {
             dispatch(showLoader());
             const response = await axios.delete(`${API_URL}api/auth/delete`,
-                { headers: { Authorization: `Bearer ${localStorage.getItem('token')}` } }, /* Отправляем Токен в Заголовках */
+                { headers: { Authorization: `Bearer ${localStorage.getItem('token') || sessionStorage.getItem('token')}` } }, /* Отправляем Токен в Заголовках */
             );
             dispatch(logout()); /* Удаялем данные о пользователе */
 
@@ -111,7 +111,10 @@ export const changePassword = (email, newPassword, setPassword) => {
             });
 
             dispatch(setUser(response.data.user)); /* Сохраняем пользователя */
-            localStorage.setItem('token', response.data.token); /* Сохраняем Токен в локал сторидж */
+
+            response.data.user.isSaveSession
+                ? localStorage.setItem('token', response.data.token)
+                : sessionStorage.setItem('token', response.data.token);
 
             setPassword('');
 
