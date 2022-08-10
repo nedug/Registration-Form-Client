@@ -35,7 +35,7 @@ const App = () => {
                         :
                         <Switch>
                             <Route exact path='/profile' component={Profile} />
-                            <Redirect to='/' />
+                            <Redirect to='/profile' />
                         </Switch>
                     }
 

@@ -38,14 +38,10 @@ export const login = (email, password) => {
             dispatch(setUser(response.data.user)); /* Сохраняем пользователя */
             localStorage.setItem('token', response.data.token); /* Сохраняем Токен в локал сторидж */
         } catch (e) {
-
             dispatch(error(e.response.data.message));
-
             setTimeout(() => {
                 dispatch(error(false));
             }, 3500);
-
-            // alert(e.response.data.message);
         }
     };
 };

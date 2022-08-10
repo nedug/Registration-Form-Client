@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Input from '../../utils/input/Input';
 import { registration } from '../../actions/user';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
 
 const Registration = () => {

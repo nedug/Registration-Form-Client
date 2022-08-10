@@ -27,9 +27,9 @@ const Navbar = () => {
                     </button></NavLink>}
 
 
-                {isAuth && <div className='navbar__login' onClick={() => dispatch(logout())}>Выход</div>}
+                {isAuth && <button className='px-4 py-2 rounded-lg bg-gray-800 m-3 hover:shadow-md hover:bg-gray-900' onClick={() => dispatch(logout())}>Log Out</button>}
 
-                {isAuth && <NavLink to='/profile'>Пользователь</NavLink>}
+                {/*{isAuth && <NavLink to='/profile'>Пользователь</NavLink>}*/}
             </div>
         </nav>
     );
