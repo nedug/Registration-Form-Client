@@ -7,7 +7,7 @@ import Input from '../../utils/input/Input';
 
 
 const Login = () => {
-    const [email, setEmail] = useState('');
+    const [email, setEmail] = useState('test1@gmail.com');
     const [password, setPassword] = useState('');
     const [checkbox, setCheckbox] = useState(false);
     const dispatch = useDispatch();

@@ -31,11 +31,11 @@ const App = () => {
 
     return (
         <BrowserRouter>
-            <div className='app'>
+            <div>
 
                 <Navbar />
 
-                <div className='wrap'>
+                <div>
                     {!isAuth ?
                         <Switch>
                             <Route path='/registration' component={Registration} />
@@ -49,6 +49,13 @@ const App = () => {
                         </Switch>
                     }
                 </div>
+
+                {!isAuth &&
+                    <div className='flex flex-col items-center bg-pink-100 py-3'>
+                        <h3 className='font-bold text-xl w-[520px] text-center'>Форма регистрации пользователей с помощью: React, Node.js, Express, MongoDB, JWT Token.</h3>
+                        <div className='py-1'>1. Зарегистируйтесь используя любой вымышленный Email и Password.</div>
+                        <div className='py-1'>2. Зайдите в профиль с помощью указанных данных.</div>
+                    </div>}
 
                 {isError && <div
                     className='fixed px-7 bg-red-500 bottom-10 text-white left-2/4 -translate-x-2/4 mx-auto rounded p-3 text-center shadow-2xl'>
