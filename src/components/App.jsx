@@ -5,7 +5,7 @@ import Login from './authorization/Login';
 import { useDispatch, useSelector } from 'react-redux';
 import { auth } from '../actions/user';
 import Profile from './profile/Profile';
-import { BrowserRouter, Redirect, Switch, Route } from 'react-router-dom';
+import { HashRouter, Redirect, Route, Switch } from 'react-router-dom';
 import loaderGIF from '../assets/img/loading.gif';
 
 
@@ -30,7 +30,8 @@ const App = () => {
 
 
     return (
-        <BrowserRouter>
+        // <BrowserRouter>
+        <HashRouter>
             <div>
 
                 <Navbar />
@@ -66,7 +67,8 @@ const App = () => {
                     Success: {success}
                 </div>}
             </div>
-        </BrowserRouter>
+        </HashRouter>
+        // <BrowserRouter>
     );
 };
 
