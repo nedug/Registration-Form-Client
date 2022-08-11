@@ -29,10 +29,10 @@ const Profile = () => {
                 className='flex flex-col items-center bg-gray-200 shadow-xl hover:bg-gray-200 transition-all my-10 w-[550px] justify-between rounded-lg p-5'>
 
                 <h2 className='font-bold text-3xl my-6'>{currentUser.email}</h2>
-                <h4 className='font-bold text-xl my-3'>
+                <h4 className='font-bold text-xl my-2'>
                     Time of create: {new Date(currentUser.date).toLocaleString()}
                 </h4>
-                <h4 className='font-bold text-xl my-3'>
+                <h4 className='font-bold text-xl my-2'>
                     Time of login: {new Date(currentUser.dateLogin).toLocaleString()}
                 </h4>
 
@@ -45,7 +45,7 @@ const Profile = () => {
                         placeholder='Type new notes...' />
                     <button
                         className='py-3 w-[250px] rounded-lg bg-lime-300 my-4 ml-5 hover:shadow-md hover:bg-lime-400'
-                        onClick={createNoteHandler}>Create notes
+                        onClick={createNoteHandler}>Create Note
                     </button>
                 </div>
 
