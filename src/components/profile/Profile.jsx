@@ -29,6 +29,7 @@ const Profile = () => {
                 className='flex flex-col items-center bg-gray-200 shadow-xl hover:bg-gray-200 transition-all my-10 w-[550px] justify-between rounded-lg p-5'>
 
                 <h2 className='font-bold text-3xl my-6'>{currentUser.email}</h2>
+
                 <h4 className='font-bold text-xl my-2'>
                     Time of create: {new Date(currentUser.date).toLocaleString()}
                 </h4>
@@ -36,10 +37,22 @@ const Profile = () => {
                     Time of login: {new Date(currentUser.dateLogin).toLocaleString()}
                 </h4>
 
+                <div className='border border-b-gray-400 w-[100%] my-4' />
 
-                <div className='flex flex-row items-center mb-6 mt-8 w-[100%]'>
+                {currentUser.notes.length > 0 &&
+                    <div className='flex flex-col items-center mb-0 mt-0 w-[100%]'>
+                        <h4 className='font-bold text-xl my-1'>Notes:</h4>
+                        <div
+                            className='flex flex-row items-center mb-0 mt-1 w-[100%] flex-wrap bg-emerald-50 rounded-lg p-2'>
+                            {currentUser.notes.map((num, i) => {
+                                return <div className='mx-1' key={i}>{num},</div>;
+                            })}
+                        </div>
+                    </div>}
+
+                <div className='flex flex-row items-center mb-1 mt-3 w-[100%]'>
                     <textarea
-                        className='w-[500px] h-[70px] py-2 px-3 resize-none outline-none rounded-lg hover:shadow bg-gray-100'
+                        className='w-[500px] h-[65px] py-2 px-3 resize-none outline-none rounded-lg hover:shadow bg-gray-100'
                         value={notes}
                         onChange={e => setNotes(e.target.value)}
                         placeholder='Type new notes...' />
@@ -49,8 +62,9 @@ const Profile = () => {
                     </button>
                 </div>
 
+                <div className='border border-b-gray-400 w-[100%] my-4' />
 
-                <div className='flex flex-row items-center mb-6 mt-8 w-[100%]'>
+                <div className='flex flex-row items-center mb-4 mt-0 w-[100%]'>
                     <Input
                         value={newPassword}
                         setValue={setPassword}
