@@ -32,9 +32,10 @@ const App = () => {
     return (
         <BrowserRouter>
             <div className='app'>
-                <Navbar />
-                <div className='wrap'>
 
+                <Navbar />
+
+                <div className='wrap'>
                     {!isAuth ?
                         <Switch>
                             <Route path='/registration' component={Registration} />
@@ -47,13 +48,16 @@ const App = () => {
                             <Redirect to='/profile' />
                         </Switch>
                     }
-
                 </div>
 
                 {isError && <div
-                    className='fixed px-7 bg-red-500 bottom-10 text-white left-2/4 -translate-x-2/4 mx-auto rounded p-3 text-center shadow-2xl'>Error: {isError}</div>}
+                    className='fixed px-7 bg-red-500 bottom-10 text-white left-2/4 -translate-x-2/4 mx-auto rounded p-3 text-center shadow-2xl'>
+                    Error: {isError}
+                </div>}
                 {success && <div
-                    className='fixed px-7 bg-green-500 bottom-10 text-white left-2/4 -translate-x-2/4 mx-auto rounded p-3 text-center shadow-2xl'>Success: {success}</div>}
+                    className='fixed px-7 bg-green-500 bottom-10 text-white left-2/4 -translate-x-2/4 mx-auto rounded p-3 text-center shadow-2xl'>
+                    Success: {success}
+                </div>}
             </div>
         </BrowserRouter>
     );
