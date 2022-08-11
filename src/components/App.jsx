@@ -54,7 +54,7 @@ const App = () => {
                 {!isAuth &&
                     <div className='flex flex-col items-center bg-pink-100 py-3'>
                         <h3 className='font-bold text-xl w-[520px] text-center'>Форма регистрации пользователей с помощью: React, Node.js, Express, MongoDB, JWT Token.</h3>
-                        <div className='py-1'>1. Зарегистируйтесь используя любой вымышленный Email и Password.</div>
+                        <div className='pt-2 pb-1'>1. Зарегистируйтесь используя любой вымышленный Email и Password.</div>
                         <div className='py-1'>2. Зайдите в профиль с помощью указанных данных.</div>
                     </div>}
 
