@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/Mern-cloud-disk-Client/static/css/main.f96e3154.css",
-    "main.js": "/Mern-cloud-disk-Client/static/js/main.9eeab41b.js",
+    "main.js": "/Mern-cloud-disk-Client/static/js/main.ed02dc93.js",
     "static/media/loading.gif": "/Mern-cloud-disk-Client/static/media/loading.011aaec08f5bee7eaa26.gif",
     "static/media/eye2.ico": "/Mern-cloud-disk-Client/static/media/eye2.05fca28ea53e5f4ddd5d.ico",
     "static/media/eye1.ico": "/Mern-cloud-disk-Client/static/media/eye1.a65d0cbabe93988c2451.ico",
     "static/media/navbar-logo.svg": "/Mern-cloud-disk-Client/static/media/navbar-logo.0dc4618b43a03ef67dc0991ee1d75df0.svg",
     "index.html": "/Mern-cloud-disk-Client/index.html",
     "main.f96e3154.css.map": "/Mern-cloud-disk-Client/static/css/main.f96e3154.css.map",
-    "main.9eeab41b.js.map": "/Mern-cloud-disk-Client/static/js/main.9eeab41b.js.map"
+    "main.ed02dc93.js.map": "/Mern-cloud-disk-Client/static/js/main.ed02dc93.js.map"
   },
   "entrypoints": [
     "static/css/main.f96e3154.css",
-    "static/js/main.9eeab41b.js"
+    "static/js/main.ed02dc93.js"
   ]
 }
