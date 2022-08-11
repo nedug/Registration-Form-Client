@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { changePassword, createNotes, removeUser } from '../../actions/user';
-import Input from '../../utils/input/Input';
+import InputPas from '../../utils/input/InputPas';
 
 
 const Profile = () => {
@@ -65,7 +65,7 @@ const Profile = () => {
                 <div className='border border-b-gray-400 w-[100%] my-4' />
 
                 <div className='flex flex-row items-center mb-4 mt-0 w-[100%]'>
-                    <Input
+                    <InputPas
                         value={newPassword}
                         setValue={setPassword}
                         type='password'

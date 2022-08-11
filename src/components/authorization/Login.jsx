@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import Input from '../../utils/input/Input';
+import InputPas from '../../utils/input/InputPas';
 import { useDispatch } from 'react-redux';
 import { login } from '../../actions/user';
 import style from './Login.module.css';
+import Input from '../../utils/input/Input';
 
 
 const Login = () => {
@@ -20,7 +21,7 @@ const Login = () => {
                 <h2 className='font-bold text-3xl'>Log In!</h2>
 
                 <Input value={email} setValue={setEmail} type='text' placeholder='Email...' />
-                <Input value={password} setValue={setPassword} type='password' placeholder='Password...' />
+                <InputPas value={password} setValue={setPassword} placeholder='Password...' />
 
                 <div className={style.checkbox}>
                     <input
@@ -33,7 +34,6 @@ const Login = () => {
                     />
                     <label htmlFor='color'>Remember Me</label>
                 </div>
-
 
                 <button className='py-2 w-[150px] rounded-lg bg-blue-300 mb-4 mt-6 hover:shadow-md hover:bg-blue-400'
                         onClick={() => dispatch(login(email, password, checkbox))}>Log In
