@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { changePassword, removeUser } from '../../actions/user';
+import { changePassword, createNotes, removeUser } from '../../actions/user';
 import Input from '../../utils/input/Input';
 
 
@@ -18,7 +18,7 @@ const Profile = () => {
     };
 
     const createNoteHandler = () => {
-        // dispatch(changePassword(currentUser.email, newPassword, setPassword));
+        dispatch(createNotes(notes, setNotes));
     };
 
 

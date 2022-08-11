@@ -130,3 +130,33 @@ export const changePassword = (email, newPassword, setPassword) => {
         }
     };
 };
+
+
+export const createNotes = (notes, setNotes) => {
+    return async dispatch => {
+        try {
+            const response = await axios.post(`${API_URL}api/auth/notes`,
+                { notes, },
+                { headers: { Authorization: `Bearer ${localStorage.getItem('token') || sessionStorage.getItem('token')}` } },
+            );
+
+            dispatch(setUser(response.data.user)); /* Сохраняем пользователя */
+
+            response.data.user.isSaveSession
+                ? localStorage.setItem('token', response.data.token)
+                : sessionStorage.setItem('token', response.data.token);
+
+            setNotes('');
+
+            dispatch(success('New note was created!'));
+            setTimeout(() => {
+                dispatch(success(false));
+            }, 3500);
+        } catch (e) {
+            dispatch(error(e.response.data.message));
+            setTimeout(() => {
+                dispatch(error(false));
+            }, 3500);
+        }
+    };
+};
