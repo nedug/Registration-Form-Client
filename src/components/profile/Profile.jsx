@@ -41,10 +41,10 @@ const Profile = () => {
 
                 <h2 className='font-bold text-3xl my-5'>{currentUser.email}</h2>
 
-                <h4 className='font-bold text-xl mb-2'>
+                <h4 className='font-bold text-xl mb-1'>
                     Time of create: {new Date(currentUser.dateAuth).toLocaleString()}
                 </h4>
-                <h4 className='font-bold text-xl my-2'>
+                <h4 className='font-bold text-xl my-1'>
                     Time of login: {new Date(currentUser.dateLogin).toLocaleString()}
                 </h4>
 
