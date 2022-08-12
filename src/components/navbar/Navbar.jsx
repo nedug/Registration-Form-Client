@@ -11,7 +11,7 @@ const Navbar = () => {
 
 
     return (
-        <nav className='flex justify-between items-center h-[80px] px-5 shadow-md bg-gray-400 text-white'>
+        <nav className='flex justify-between items-center h-[75px] px-5 shadow-md bg-gray-400 text-white'>
 
             <h3 className='font-bold text-3xl text-white ml-3'>JWT Token</h3>
 

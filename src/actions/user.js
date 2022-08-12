@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { error, logout, setUser, success } from '../reducers/userReducer';
+import { error, getAllUsers, logout, setUser, success } from '../reducers/userReducer';
 import { API_URL } from '../config';
 import { hideLoader, showLoader } from '../reducers/appReducer';
 
@@ -131,7 +131,6 @@ export const changePassword = (email, newPassword, setPassword) => {
     };
 };
 
-
 export const createNotes = (notes, setNotes) => {
     return async dispatch => {
         try {
@@ -149,6 +148,57 @@ export const createNotes = (notes, setNotes) => {
             setNotes('');
 
             dispatch(success('New note was created!'));
+            setTimeout(() => {
+                dispatch(success(false));
+            }, 3500);
+        } catch (e) {
+            dispatch(error(e.response.data.message));
+            setTimeout(() => {
+                dispatch(error(false));
+            }, 3500);
+        }
+    };
+};
+
+export const findAllUsers = () => {
+    return async dispatch => {
+        try {
+            const response = await axios.get(`${API_URL}api/auth/users`,
+                { headers: { Authorization: `Bearer ${localStorage.getItem('token') || sessionStorage.getItem('token')}` } }, /* Отправляем Токен в Заголовках */
+            );
+
+            console.log(response.data);
+
+            dispatch(getAllUsers(response.data.users)); /* Сохраняем всех пользователей */
+
+            // dispatch(getLoginUsers(response.data.users.filter(u => ))); /* Сохраняем пользователей online */
+
+            // dispatch(success(`User ${response.data.user.email} was removed!`));
+            // setTimeout(() => {
+            //     dispatch(success(false));
+            // }, 3500);
+        } catch (e) {
+            dispatch(error(e.response.data.message));
+            setTimeout(() => {
+                dispatch(error(false));
+            }, 3500);
+        }
+    };
+};
+
+export const removeAllUsers = () => {
+    return async dispatch => {
+        try {
+            const response = await axios.delete(`${API_URL}api/auth/removeUsers`,
+                { headers: { Authorization: `Bearer ${localStorage.getItem('token') || sessionStorage.getItem('token')}` } }, /* Отправляем Токен в Заголовках */
+            );
+
+            console.log(response.data);
+
+            dispatch(logout()); /* Удаялем данные о пользователе */
+
+
+            dispatch(success(`${response.data.message}`));
             setTimeout(() => {
                 dispatch(success(false));
             }, 3500);

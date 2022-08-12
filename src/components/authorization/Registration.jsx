@@ -6,7 +6,7 @@ import Input from '../../utils/input/Input';
 
 
 const Registration = () => {
-    const [email, setEmail] = useState('test1@gmail.com');
+    const [email, setEmail] = useState('test11@gmail.com');
     const [password, setPassword] = useState('');
     const dispatch = useDispatch();
 
