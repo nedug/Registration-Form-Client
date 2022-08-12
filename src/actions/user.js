@@ -193,10 +193,7 @@ export const removeAllUsers = () => {
                 { headers: { Authorization: `Bearer ${localStorage.getItem('token') || sessionStorage.getItem('token')}` } }, /* Отправляем Токен в Заголовках */
             );
 
-            console.log(response.data);
-
             dispatch(logout()); /* Удаялем данные о пользователе */
-
 
             dispatch(success(`${response.data.message}`));
             setTimeout(() => {
