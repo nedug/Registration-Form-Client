@@ -48,7 +48,7 @@ const Profile = () => {
                     Time of login: {new Date(currentUser.dateLogin).toLocaleString()}
                 </h4>
 
-                <div className='border border-b-gray-400 w-[100%] my-3' />
+                <div className='border border-b-gray-400 w-[100%] my-2' />
 
                 {currentUser.notes.length > 0 &&
                     <div className='flex flex-col items-center mb-0 mt-0 w-[100%]'>
@@ -73,7 +73,7 @@ const Profile = () => {
                     </button>
                 </div>
 
-                <div className='border border-b-gray-400 w-[100%] my-3' />
+                <div className='border border-b-gray-400 w-[100%] my-2' />
 
 
                 <div className='flex flex-row items-center mb-3 mt-0 w-[100%]'>
@@ -90,7 +90,7 @@ const Profile = () => {
 
                 <div className='flex flex-col relative items-center w-[100%]'>
                     <button className='py-2 w-[60%] rounded-lg bg-pink-300 mb-3 hover:shadow-md hover:bg-pink-400'
-                            onClick={() => setIsSure(true)}>Remove current User
+                            onClick={() => setIsSure(true)}>Remove current User!
                     </button>
 
                     {isSureOne &&
@@ -117,7 +117,7 @@ const Profile = () => {
                         </div>}
                 </div>
 
-                <div className='border border-b-gray-400 w-[100%] my-3' />
+                <div className='border border-b-gray-400 w-[100%] my-2' />
 
                 <div className='flex flex-col items-center mb-4 mt-1 w-[100%]'>
                     <button
@@ -139,7 +139,7 @@ const Profile = () => {
                     <div className='flex flex-col relative items-center w-[100%]'>
                         <button
                             className='py-2 w-[100%] rounded-lg bg-gray-300 my-2 hover:shadow-md hover:bg-gray-400 transition-all'
-                            onClick={() => setIsSureAll(true)}>Remove all Users
+                            onClick={() => setIsSureAll(true)}>Remove all Users!
                         </button>
                         {isSureAll &&
                             <div className='flex flex-col absolute shadow-xl -top-4 -right-40 rounded-lg bg-gray-300 p-2'>
