@@ -40,7 +40,7 @@ export const login = (email, password, checkbox) => {
             });
 
             if (!response.data.user.isActivated) {
-                dispatch(error('Нужна активация через почту'));
+                dispatch(error('Check your Email for activation'));
                 setTimeout(() => {
                     dispatch(error(false));
                 }, 3500);

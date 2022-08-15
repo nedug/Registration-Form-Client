@@ -35,7 +35,7 @@ const Login = () => {
                     <label htmlFor='color'>Remember Me</label>
                 </div>
 
-                <button className='py-2 w-[150px] rounded-lg bg-blue-300 mb-4 mt-6 hover:shadow-md hover:bg-blue-400'
+                <button className='py-2 w-[150px] rounded-lg bg-blue-300 m-4 hover:shadow-md hover:bg-blue-400'
                         onClick={() => dispatch(login(email, password, checkbox))}>Log In
                 </button>
             </div>
