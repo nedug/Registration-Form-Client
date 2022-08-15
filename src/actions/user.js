@@ -146,7 +146,7 @@ export const createNotes = (notes, setNotes) => {
     return async dispatch => {
         try {
             const response = await axios.post(`${API_URL}api/auth/notes`,
-                { notes, },
+                { notes },
                 { headers: { Authorization: `Bearer ${localStorage.getItem('token') || sessionStorage.getItem('token')}` } },
             );
 
@@ -213,28 +213,43 @@ export const removeAllUsers = () => {
     };
 };
 
-export const restorePassword = (email) => {
+export const restorePassword = (email, history) => {
     return async dispatch => {
         try {
-
             const response = await axios.post(`${API_URL}api/auth/restore`, {
                 email,
             });
 
+            history.push('/restoreForm');
 
-            // if (!response.data.user.isActivated) {
-            //     dispatch(error('Check your Email for activation'));
-            //     setTimeout(() => {
-            //         dispatch(error(false));
-            //     }, 3500);
-            //     return;
-            // }
-            //
-            // dispatch(setUser(response.data.user)); /* Сохраняем пользователя */
-            //
-            // checkbox
-            //     ? localStorage.setItem('token', response.data.token) /* Сохраняем Токен в локал сторидж */
-            //     : sessionStorage.setItem('token', response.data.token); /* Сохраняем Токен в сейшн сторидж */
+            dispatch(success(`${response.data.message}`));
+            setTimeout(() => {
+                dispatch(success(false));
+            }, 3500);
+
+        } catch (e) {
+            dispatch(error(e.response.data.message));
+            setTimeout(() => {
+                dispatch(error(false));
+            }, 3500);
+        }
+    };
+};
+
+export const savePassword = (code, password, history) => {
+    return async dispatch => {
+        try {
+            const response = await axios.post(`${API_URL}api/auth/savePassword`, {
+                code,
+                password,
+            });
+
+            history.push('/login');
+
+            dispatch(success(`${response.data.message}`));
+            setTimeout(() => {
+                dispatch(success(false));
+            }, 3500);
 
         } catch (e) {
             dispatch(error(e.response.data.message));
