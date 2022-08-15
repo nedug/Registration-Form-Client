@@ -6,8 +6,8 @@ import Input from '../../utils/input/Input';
 
 
 const Registration = () => {
-    const [email, setEmail] = useState('test11@gmail.com');
-    const [password, setPassword] = useState('');
+    const [email, setEmail] = useState('ru5nedug@mail.ru');
+    const [password, setPassword] = useState('123');
     const dispatch = useDispatch();
 
     const onClickButton = () => dispatch(registration(email, password, setEmail, setPassword));
