@@ -25,7 +25,7 @@ const RestoreForm = () => {
                 <h2 className='font-bold text-3xl'>Restore Password!</h2>
 
                 <h3 className='my-4'>Only for real users.</h3>
-                <h3 className='my-4 text-green-400'>Confirmation code sent to your email.</h3>
+                <h3 className='my-4 font-bold text-green-500'>Confirmation code sent to your email.</h3>
 
                 <Input value={code} setValue={setCode} type='text' placeholder='Confirmation code...' />
 
