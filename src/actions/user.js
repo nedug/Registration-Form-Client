@@ -3,6 +3,7 @@ import { error, getAllUsers, logout, setUser, success } from '../reducers/userRe
 import { API_URL } from '../config';
 import { hideLoader, showLoader } from '../reducers/appReducer';
 
+
 export const registration = (email, password, setEmail, setPassword, isNeedActivate) => {
     return async dispatch => {
         try {
@@ -181,12 +182,6 @@ export const findAllUsers = () => {
 
             dispatch(getAllUsers(response.data.users)); /* Сохраняем всех пользователей */
 
-            // dispatch(getLoginUsers(response.data.users.filter(u => ))); /* Сохраняем пользователей online */
-
-            // dispatch(success(`User ${response.data.user.email} was removed!`));
-            // setTimeout(() => {
-            //     dispatch(success(false));
-            // }, 3500);
         } catch (e) {
             dispatch(error(e.response.data.message));
             setTimeout(() => {
@@ -209,6 +204,38 @@ export const removeAllUsers = () => {
             setTimeout(() => {
                 dispatch(success(false));
             }, 3500);
+        } catch (e) {
+            dispatch(error(e.response.data.message));
+            setTimeout(() => {
+                dispatch(error(false));
+            }, 3500);
+        }
+    };
+};
+
+export const restorePassword = (email) => {
+    return async dispatch => {
+        try {
+
+            const response = await axios.post(`${API_URL}api/auth/restore`, {
+                email,
+            });
+
+
+            // if (!response.data.user.isActivated) {
+            //     dispatch(error('Check your Email for activation'));
+            //     setTimeout(() => {
+            //         dispatch(error(false));
+            //     }, 3500);
+            //     return;
+            // }
+            //
+            // dispatch(setUser(response.data.user)); /* Сохраняем пользователя */
+            //
+            // checkbox
+            //     ? localStorage.setItem('token', response.data.token) /* Сохраняем Токен в локал сторидж */
+            //     : sessionStorage.setItem('token', response.data.token); /* Сохраняем Токен в сейшн сторидж */
+
         } catch (e) {
             dispatch(error(e.response.data.message));
             setTimeout(() => {

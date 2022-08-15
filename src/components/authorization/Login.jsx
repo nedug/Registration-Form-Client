@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux';
 import { login } from '../../actions/user';
 import style from './Login.module.css';
 import Input from '../../utils/input/Input';
+import { NavLink } from 'react-router-dom';
 
 
 const Login = () => {
@@ -38,6 +39,12 @@ const Login = () => {
                 <button className='py-2 w-[150px] rounded-lg bg-blue-300 m-4 hover:shadow-md hover:bg-blue-400'
                         onClick={() => dispatch(login(email, password, checkbox))}>Log In
                 </button>
+
+                <NavLink to='/restore'>
+                    <button className='py-2 w-[200px] rounded-lg bg-lime-300 m-4 hover:shadow-md hover:bg-lime-300'>
+                        I forgot password...
+                    </button>
+                </NavLink>
             </div>
         </div>
     );

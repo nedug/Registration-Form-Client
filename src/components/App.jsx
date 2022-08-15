@@ -7,6 +7,8 @@ import { auth } from '../actions/user';
 import Profile from './profile/Profile';
 import { HashRouter, Redirect, Route, Switch } from 'react-router-dom';
 import loaderGIF from '../assets/img/loading.gif';
+import RestorePassword from './authorization/RestorePassword';
+import RestoreForm from './authorization/RestoreForm';
 
 
 const App = () => {
@@ -41,6 +43,8 @@ const App = () => {
                         <Switch>
                             <Route path='/registration' component={Registration} />
                             <Route path='/login' component={Login} />
+                            <Route path='/restore' component={RestorePassword} />
+                            <Route path='/restoreForm' component={RestoreForm} />
                             <Redirect to='/login' />
                         </Switch>
                         :

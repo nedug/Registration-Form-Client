@@ -1,5 +1,4 @@
 import React from 'react';
-import Logo from '../../assets/img/navbar-logo.svg';
 import { NavLink } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { logout } from '../../reducers/userReducer';
