@@ -3,12 +3,13 @@ import { error, getAllUsers, logout, setUser, success } from '../reducers/userRe
 import { API_URL } from '../config';
 import { hideLoader, showLoader } from '../reducers/appReducer';
 
-export const registration = (email, password, setEmail, setPassword) => {
+export const registration = (email, password, setEmail, setPassword, isNeedActivate) => {
     return async dispatch => {
         try {
             const response = await axios.post(`${API_URL}api/auth/registration`, {
                 email,
                 password,
+                isNeedActivate,
             });
 
             dispatch(success(response.data.message));
@@ -31,11 +32,20 @@ export const registration = (email, password, setEmail, setPassword) => {
 export const login = (email, password, checkbox) => {
     return async dispatch => {
         try {
+
             const response = await axios.post(`${API_URL}api/auth/login`, {
                 email,
                 password,
                 checkbox,
             });
+
+            if (!response.data.user.isActivated) {
+                dispatch(error('Нужна активация через почту'));
+                setTimeout(() => {
+                    dispatch(error(false));
+                }, 3500);
+                return;
+            }
 
             dispatch(setUser(response.data.user)); /* Сохраняем пользователя */
 
