@@ -89,12 +89,14 @@ const Profile = () => {
                 </div>
 
                 <div className='flex flex-col relative items-center w-[100%]'>
-                    <button className='py-2 w-[60%] rounded-lg bg-pink-300 mb-3 hover:shadow-md hover:bg-pink-400'
-                            onClick={() => setIsSure(true)}>Remove current User!
+                    <button
+                        className='py-2 w-[60%] rounded-lg bg-pink-300 mb-3 hover:shadow-md hover:bg-pink-400'
+                        onClick={() => setIsSure(true)}>Remove current User!
                     </button>
 
                     {isSureOne &&
-                        <div className='flex flex-col absolute shadow-xl -top-6 -right-40 rounded-lg bg-gray-300 p-2'>
+                        <div
+                            className='flex flex-col absolute shadow-xl -top-6 -right-40 rounded-lg bg-gray-300 p-2'>
                             <div className='absolute shadow-xl -left-3 top-8 '
                                  style={{
                                      width: 0,
@@ -142,7 +144,8 @@ const Profile = () => {
                             onClick={() => setIsSureAll(true)}>Remove all Users!
                         </button>
                         {isSureAll &&
-                            <div className='flex flex-col absolute shadow-xl -top-4 -right-40 rounded-lg bg-gray-300 p-2'>
+                            <div
+                                className='flex flex-col absolute shadow-xl -top-4 -right-40 rounded-lg bg-gray-300 p-2'>
                                 <div className='absolute shadow-xl -left-3 top-8 '
                                      style={{
                                          width: 0,
