@@ -63,12 +63,12 @@ const Profile = () => {
 
                 <div className='flex flex-row items-center mb-1 mt-3 w-[100%]'>
                     <textarea
-                        className='w-[500px] h-[65px] py-2 px-3 resize-none outline-none rounded-lg hover:shadow bg-gray-100'
+                        className='w-[500px] h-[60px] py-2 px-3 resize-none outline-none rounded-lg hover:shadow bg-gray-100'
                         value={notes}
                         onChange={e => setNotes(e.target.value)}
                         placeholder='Type new notes...' />
                     <button
-                        className='py-3 w-[250px] rounded-lg bg-lime-300 my-4 ml-5 hover:shadow-md hover:bg-lime-400'
+                        className='py-2 w-[250px] rounded-lg bg-green-200 my-4 ml-5 hover:shadow-md hover:bg-green-300'
                         onClick={createNoteHandler}>Create Note
                     </button>
                 </div>
@@ -83,14 +83,14 @@ const Profile = () => {
                         type='password'
                         placeholder='New Password...' />
                     <button
-                        className='py-3 w-[250px] rounded-lg bg-yellow-300 my-4 ml-5 hover:shadow-md hover:bg-yellow-400'
+                        className='py-2 w-[250px] rounded-lg bg-yellow-200 my-3 ml-5 hover:shadow-md hover:bg-yellow-300'
                         onClick={changePassHandler}>Change Password
                     </button>
                 </div>
 
                 <div className='flex flex-col relative items-center w-[100%]'>
                     <button
-                        className='py-2 w-[60%] rounded-lg bg-pink-300 mb-3 hover:shadow-md hover:bg-pink-400'
+                        className='py-2 w-[50%] rounded-lg bg-pink-300 mb-3 hover:shadow-md hover:bg-pink-400'
                         onClick={() => setIsSure(true)}>Remove current User!
                     </button>
 
