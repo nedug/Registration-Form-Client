@@ -8,7 +8,7 @@ import { useHistory } from 'react-router-dom';
 const RestorePassword = () => {
     const history = useHistory();
 
-    const [email, setEmail] = useState('ru5nedug@mail.ru');
+    const [email, setEmail] = useState('');
     const dispatch = useDispatch();
 
     const restorePasswordHandler = () => {

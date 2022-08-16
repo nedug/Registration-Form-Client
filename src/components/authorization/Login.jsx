@@ -8,8 +8,8 @@ import { NavLink } from 'react-router-dom';
 
 
 const Login = () => {
-    const [email, setEmail] = useState('ru5nedug@mail.ru');
-    const [password, setPassword] = useState('123');
+    const [email, setEmail] = useState('test1@gmail.com');
+    const [password, setPassword] = useState('');
     const [checkbox, setCheckbox] = useState(false);
     const dispatch = useDispatch();
 
