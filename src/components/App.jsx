@@ -9,6 +9,7 @@ import { HashRouter, Redirect, Route, Switch } from 'react-router-dom';
 import loaderGIF from '../assets/img/loading.gif';
 import RestorePassword from './authorization/RestorePassword';
 import RestoreForm from './authorization/RestoreForm';
+import style from './App.module.css';
 
 
 const App = () => {
@@ -16,6 +17,7 @@ const App = () => {
     const isError = useSelector(state => state.user.error);
     const success = useSelector(state => state.user.success);
     const loader = useSelector(state => state.app.loader);
+    const preloader = useSelector(state => state.app.preloader);
 
     const dispatch = useDispatch();
 
@@ -37,6 +39,15 @@ const App = () => {
             <div>
 
                 <Navbar />
+
+                {preloader ?
+                    <div className={style.container}>
+                        <div className={style.progressBar}>
+                        </div>
+                    </div>
+                    :
+                    <div className='h-[5px]'></div>
+                }
 
                 <div>
                     {!isAuth ?

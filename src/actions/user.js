@@ -1,12 +1,14 @@
 import axios from 'axios';
 import { error, getAllUsers, logout, setUser, success } from '../reducers/userReducer';
 import { API_URL } from '../config';
-import { hideLoader, showLoader } from '../reducers/appReducer';
+import { hideLoader, hidePreLoader, showLoader, showPreLoader } from '../reducers/appReducer';
 
 
 export const registration = (email, password, setEmail, setPassword, isNeedActivate) => {
     return async dispatch => {
         try {
+            dispatch(showPreLoader());
+
             const response = await axios.post(`${API_URL}api/auth/registration`, {
                 email,
                 password,
@@ -26,6 +28,8 @@ export const registration = (email, password, setEmail, setPassword, isNeedActiv
             setTimeout(() => {
                 dispatch(error(false));
             }, 3500);
+        } finally {
+            dispatch(hidePreLoader());
         }
     };
 };
@@ -33,6 +37,7 @@ export const registration = (email, password, setEmail, setPassword, isNeedActiv
 export const login = (email, password, checkbox) => {
     return async dispatch => {
         try {
+            dispatch(showPreLoader());
 
             const response = await axios.post(`${API_URL}api/auth/login`, {
                 email,
@@ -59,6 +64,8 @@ export const login = (email, password, checkbox) => {
             setTimeout(() => {
                 dispatch(error(false));
             }, 3500);
+        } finally {
+            dispatch(hidePreLoader());
         }
     };
 };
@@ -92,7 +99,8 @@ export const auth = () => { /* Проверка пользователя на а
 export const removeUser = () => {
     return async dispatch => {
         try {
-            dispatch(showLoader());
+            dispatch(showPreLoader());
+
             const response = await axios.delete(`${API_URL}api/auth/delete`,
                 { headers: { Authorization: `Bearer ${localStorage.getItem('token') || sessionStorage.getItem('token')}` } }, /* Отправляем Токен в Заголовках */
             );
@@ -108,7 +116,7 @@ export const removeUser = () => {
                 dispatch(error(false));
             }, 3500);
         } finally {
-            dispatch(hideLoader());
+            dispatch(hidePreLoader());
         }
     };
 };
@@ -116,6 +124,8 @@ export const removeUser = () => {
 export const changePassword = (email, newPassword, setPassword) => {
     return async dispatch => {
         try {
+            dispatch(showPreLoader());
+
             const response = await axios.patch(`${API_URL}api/auth/change`, {
                 email,
                 newPassword,
@@ -138,6 +148,8 @@ export const changePassword = (email, newPassword, setPassword) => {
             setTimeout(() => {
                 dispatch(error(false));
             }, 3500);
+        } finally {
+            dispatch(hidePreLoader());
         }
     };
 };
@@ -145,6 +157,8 @@ export const changePassword = (email, newPassword, setPassword) => {
 export const createNotes = (notes, setNotes) => {
     return async dispatch => {
         try {
+            dispatch(showPreLoader());
+
             const response = await axios.post(`${API_URL}api/auth/notes`,
                 { notes },
                 { headers: { Authorization: `Bearer ${localStorage.getItem('token') || sessionStorage.getItem('token')}` } },
@@ -167,6 +181,8 @@ export const createNotes = (notes, setNotes) => {
             setTimeout(() => {
                 dispatch(error(false));
             }, 3500);
+        } finally {
+            dispatch(hidePreLoader());
         }
     };
 };
@@ -174,6 +190,8 @@ export const createNotes = (notes, setNotes) => {
 export const findAllUsers = () => {
     return async dispatch => {
         try {
+            dispatch(showPreLoader());
+
             const response = await axios.get(`${API_URL}api/auth/users`,
                 { headers: { Authorization: `Bearer ${localStorage.getItem('token') || sessionStorage.getItem('token')}` } }, /* Отправляем Токен в Заголовках */
             );
@@ -187,6 +205,8 @@ export const findAllUsers = () => {
             setTimeout(() => {
                 dispatch(error(false));
             }, 3500);
+        } finally {
+            dispatch(hidePreLoader());
         }
     };
 };
@@ -194,6 +214,8 @@ export const findAllUsers = () => {
 export const removeAllUsers = () => {
     return async dispatch => {
         try {
+            dispatch(showPreLoader());
+
             const response = await axios.delete(`${API_URL}api/auth/removeUsers`,
                 { headers: { Authorization: `Bearer ${localStorage.getItem('token') || sessionStorage.getItem('token')}` } }, /* Отправляем Токен в Заголовках */
             );
@@ -209,6 +231,8 @@ export const removeAllUsers = () => {
             setTimeout(() => {
                 dispatch(error(false));
             }, 3500);
+        } finally {
+            dispatch(hidePreLoader());
         }
     };
 };
@@ -216,6 +240,8 @@ export const removeAllUsers = () => {
 export const restorePassword = (email, history) => {
     return async dispatch => {
         try {
+            dispatch(showPreLoader());
+
             const response = await axios.post(`${API_URL}api/auth/restore`, {
                 email,
             });
@@ -232,6 +258,8 @@ export const restorePassword = (email, history) => {
             setTimeout(() => {
                 dispatch(error(false));
             }, 3500);
+        } finally {
+            dispatch(hidePreLoader());
         }
     };
 };
@@ -239,6 +267,8 @@ export const restorePassword = (email, history) => {
 export const savePassword = (code, password, history) => {
     return async dispatch => {
         try {
+            dispatch(showPreLoader());
+
             const response = await axios.post(`${API_URL}api/auth/savePassword`, {
                 code,
                 password,
@@ -256,6 +286,8 @@ export const savePassword = (code, password, history) => {
             setTimeout(() => {
                 dispatch(error(false));
             }, 3500);
+        } finally {
+            dispatch(hidePreLoader());
         }
     };
 };
