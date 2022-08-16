@@ -4,10 +4,14 @@
 
 * User registration on MongoDB
 * User Login + JWT Token
-* User Profile
+* Use real email with link confirmation
+* User Profile + Remember Me
 * Create notes
 * Change password
 * Remove user
+* Find all users
+* Remove all users
+* Restore Password
 
 ***
 
@@ -16,6 +20,7 @@ Technologies and libraries in development:
 - React
 - Redux + Redux-Thunk
 - Axios
+- React-router-dom
 - Tailwind
 ```
 
