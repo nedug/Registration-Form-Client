@@ -24,10 +24,10 @@ const RestoreForm = () => {
                 className='flex flex-col items-center bg-gray-200 shadow-xl hover:bg-gray-200 transition-all my-10 w-[650px] justify-between rounded-lg px-14 py-5'>
                 <h2 className='font-bold text-3xl'>Restore Password!</h2>
 
-                <h3 className='my-4'>Only for real users.</h3>
-                <h3 className='my-4 font-bold text-green-500'>Confirmation code sent to your email.</h3>
+                <h3 className='mt-4 mb-1'>Only for real users.</h3>
+                <h3 className='my-4 text-xl text-green-500'>Confirmation code sent to your email.</h3>
 
-                <Input value={code} setValue={setCode} type='text' placeholder='Confirmation code...' />
+                <Input value={code} setValue={setCode} type='text' placeholder='Code is available for 10 minutes...' />
 
                 <InputPas value={password} setValue={setPassword} placeholder='New Password...' />
 
