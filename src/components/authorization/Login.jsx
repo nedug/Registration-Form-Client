@@ -19,12 +19,12 @@ const Login = () => {
 
             <div
                 className='flex flex-col items-center bg-gray-200 shadow-xl hover:bg-gray-200 transition-all my-10 w-[650px] justify-between rounded-lg px-14 py-5'>
-                <h2 className='font-bold text-3xl'>Log In!</h2>
+                <h2 className='font-bold text-3xl mb-2'>Log In!</h2>
 
                 <Input value={email} setValue={setEmail} type='text' placeholder='Email...' />
                 <InputPas value={password} setValue={setPassword} placeholder='Password...' />
 
-                <div className={style.checkbox}>
+                <div className={style.checkbox1}>
                     <input
                         className={style.customCheckbox}
                         type='checkbox'
@@ -34,17 +34,18 @@ const Login = () => {
                         onChange={() => setCheckbox(!checkbox)}
                     />
                     <label htmlFor='color'>Remember Me</label>
+
+                    <NavLink to='/restore'>
+                        <button className='mr-8 text-cyan-500 hover:text-cyan-600 underline'>
+                            I forgot password...
+                        </button>
+                    </NavLink>
                 </div>
 
-                <button className='py-2 w-[150px] rounded-lg bg-blue-300 m-4 hover:shadow-md hover:bg-blue-400'
+                <button className='py-2 w-[150px] rounded-lg bg-blue-300 mx-4 mt-4 mb-2 hover:shadow-md hover:bg-blue-400'
                         onClick={() => dispatch(login(email, password, checkbox))}>Log In
                 </button>
 
-                <NavLink to='/restore'>
-                    <button className='py-2 w-[200px] rounded-lg bg-lime-300 m-4 hover:shadow-md hover:bg-lime-300'>
-                        I forgot password...
-                    </button>
-                </NavLink>
             </div>
         </div>
     );

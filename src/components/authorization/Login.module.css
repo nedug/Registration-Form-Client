@@ -62,5 +62,17 @@
 }
 
 .checkbox {
+    min-height: 26px;
     margin-bottom: 1em;
+    align-self: flex-start;
+    margin-left: 15px;
+}
+
+.checkbox1 {
+    min-height: 26px;
+    margin-bottom: 1em;
+    width: 100%;
+    margin-left: 30px;
+    display: flex;
+    justify-content: space-between;
 }
