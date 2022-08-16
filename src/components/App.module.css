@@ -1,0 +1,34 @@
+/*.container {
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    width:90%;
+    height:100px;
+}*/
+
+.container h3 {
+    color: rgba(100, 100, 100, 0.9);
+}
+
+.container .progressBar {
+    width: 0%;
+    height: 5px;
+    background: #ff9bac;
+    background-size: 350px 5px;
+    border-radius: 10px;
+    animation: loading 6s ease-in-out forwards;
+}
+
+.container .shadow {
+    width: 95%;
+    height: 20px;
+    background: linear-gradient(to bottom, rgba(100, 100, 100, 0.17), rgba(100, 100, 100, 0.1), transparent);
+    transform: skew(45deg) translate(15px, 5px);
+}
+
+@keyframes loading {
+    to {
+        width: 100%;
+    }
+}
