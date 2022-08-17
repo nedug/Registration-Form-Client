@@ -17,7 +17,7 @@
     background: #ff9bac;
     background-size: 350px 5px;
     border-radius: 10px;
-    animation: loading 6s ease-in-out forwards;
+    animation: loading 6s ease-in-out forwards infinite;
 }
 
 .container .shadow {
