@@ -9,6 +9,7 @@ const RestorePassword = () => {
     const history = useHistory();
 
     const [email, setEmail] = useState('');
+    // const [email, setEmail] = useState('ru5nedug@mail.ru');
     const dispatch = useDispatch();
 
     const restorePasswordHandler = () => {
