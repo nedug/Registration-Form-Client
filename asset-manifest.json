@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/Mern-cloud-disk-Client/static/css/main.4da63bfa.css",
-    "main.js": "/Mern-cloud-disk-Client/static/js/main.c162e94e.js",
-    "static/media/loading.gif": "/Mern-cloud-disk-Client/static/media/loading.011aaec08f5bee7eaa26.gif",
-    "static/media/eye2.ico": "/Mern-cloud-disk-Client/static/media/eye2.05fca28ea53e5f4ddd5d.ico",
-    "static/media/eye1.ico": "/Mern-cloud-disk-Client/static/media/eye1.a65d0cbabe93988c2451.ico",
-    "index.html": "/Mern-cloud-disk-Client/index.html",
-    "main.4da63bfa.css.map": "/Mern-cloud-disk-Client/static/css/main.4da63bfa.css.map",
-    "main.c162e94e.js.map": "/Mern-cloud-disk-Client/static/js/main.c162e94e.js.map"
+    "main.css": "/Registration-Form-Client/static/css/main.4da63bfa.css",
+    "main.js": "/Registration-Form-Client/static/js/main.eb9f8aab.js",
+    "static/media/loading.gif": "/Registration-Form-Client/static/media/loading.011aaec08f5bee7eaa26.gif",
+    "static/media/eye2.ico": "/Registration-Form-Client/static/media/eye2.05fca28ea53e5f4ddd5d.ico",
+    "static/media/eye1.ico": "/Registration-Form-Client/static/media/eye1.a65d0cbabe93988c2451.ico",
+    "index.html": "/Registration-Form-Client/index.html",
+    "main.4da63bfa.css.map": "/Registration-Form-Client/static/css/main.4da63bfa.css.map",
+    "main.eb9f8aab.js.map": "/Registration-Form-Client/static/js/main.eb9f8aab.js.map"
   },
   "entrypoints": [
     "static/css/main.4da63bfa.css",
-    "static/js/main.c162e94e.js"
+    "static/js/main.eb9f8aab.js"
   ]
 }
